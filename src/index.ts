@@ -8,7 +8,6 @@ const app = express();
 
 loadRoutes(app, 'src/apps/**')
 
-
 app.get("/", (req, res) => {
     res.send(JSON.stringify({ version: process.env.VERSION }));
 });
