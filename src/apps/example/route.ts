@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { AppException } from '../../libs/error/error';
+import { logger } from '../../libs/logs/logs'
 
 export const router = Router();
 export const path = '/api/v1/examples'
@@ -13,7 +14,9 @@ router.get(`${path}`, (req, res) => {
 });
 
 router.get(`${path}/error`, (req, res) => {
-    throw new Error("BOOOM!!!!");
+    let msg = "BOOOM!!!!"
+    logger.info(msg)
+    throw new Error(msg);
 });
 
 router.get(`${path}/error/business`, (req, res) => {
