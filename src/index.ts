@@ -8,8 +8,9 @@ const app = express();
 
 configExpress(app, 'src/apps/**')
 
+const host = process.env.SERVER_HOST;
 const port = process.env.SERVER_PORT;
-app.listen(port, () => {
+app.listen(Number(port), host, null, () => {
     // tslint:disable-next-line:no-console
-    console.log(`server started at http://localhost:${port}`);
+    console.log(`server started at http://${host}:${port}`);
 });
