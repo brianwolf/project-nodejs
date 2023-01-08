@@ -12,7 +12,7 @@ export async function loadRoutes(app: Express, regex: string) {
     const routes = await getRoutesByRegex(regex);
 
     routes.forEach(async route => {
-        const routeToImport = route.split('.')[0].replace('src/', '../../../')
+        const routeToImport = route.split('.')[0].replace('dist/', '../../../')
 
         if (routeToImport.endsWith('route')) {
             const r = await import(routeToImport)

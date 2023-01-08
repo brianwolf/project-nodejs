@@ -7,7 +7,7 @@ dotenv.config();
 
 const app = express();
 
-configExpress(app, 'src/apps/**')
+configExpress(app, 'dist/apps/**')
 configureLogs()
 
 const host = process.env.SERVER_HOST;
