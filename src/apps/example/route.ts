@@ -15,7 +15,7 @@ router.get(`${path}`, (req, res) => {
 
 router.get(`${path}/error`, (req, res) => {
     let msg = "BOOOM!!!!"
-    logger.info(msg)
+    logger.error(msg)
     throw new Error(msg);
 });
 
