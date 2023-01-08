@@ -1,13 +1,17 @@
 
-class AppException {
+export class AppException extends Error {
 
-    code: Enumerator
+    code: string
     msg: string
     exception: Error
 
-    constructor(code: Enumerator, msg: string, exception: Error) {
+    constructor(code: string, msg: string, exception: Error = null) {
+
+        super(msg)
+
         this.code = code
         this.msg = msg
         this.exception = exception
     }
+
 }

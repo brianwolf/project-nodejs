@@ -1,43 +1,21 @@
-// Rest
-// --------
-// v1.0.0
+/**
+ * Rest
+ * --------
+ * v1.0.0
+ */
 
-import { Express, NextFunction, Request, Response } from "express";
-import fastglob from 'fast-glob';
+import { Express } from "express";
+import { loadErrorHandlers, loadRestModifiers, loadRoutes } from "./src/functions";
 
-async function getRoutesByRegex(regex: string): Promise<string[]> {
-    return await fastglob(regex)
-}
+/**
+ * Configura express cargandole rutas, modificadores y errors handlers
+ *
+ * @param app
+ * @param regex
+ */
+export async function configExpress(app: Express, regex: string) {
 
-
-export async function loadRoutes(app: Express, regex: string) {
-
-    const routes = await getRoutesByRegex(regex);
-
-    routes.forEach(async route => {
-        const routeToImport = route.split('.')[0].replace('src/', '../../')
-
-        const r = await import(routeToImport)
-        app.use('/', r.router)
-    })
-
+    await loadRoutes(app, regex)
     await loadRestModifiers(app)
     await loadErrorHandlers(app)
-
-}
-
-async function loadRestModifiers(app: Express) {
-    app.use((req: Request, res: Response, next: NextFunction) => {
-        res.setHeader('Access-Control-Allow-Origin', '*')
-        next();
-    });
-}
-
-async function loadErrorHandlers(app: Express) {
-    app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-        if (err) {
-            res.status(500).json({ cause: err.message })
-        }
-        next();
-    });
 }

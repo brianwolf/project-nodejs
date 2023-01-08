@@ -1,12 +1,12 @@
 import dotenv from "dotenv";
 import express from "express";
-import { loadRoutes } from "./libs/rest/rest";
+import { configExpress } from "./libs/rest/rest";
 
 dotenv.config();
 
 const app = express();
 
-loadRoutes(app, 'src/apps/**')
+configExpress(app, 'src/apps/**')
 
 app.get("/", (req, res) => {
     res.send(JSON.stringify({ version: process.env.VERSION }));
