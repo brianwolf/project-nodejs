@@ -1,3 +1,8 @@
+/**
+ * Error
+ * -----------
+ * v1.0.0
+ */
 
 export class AppException extends Error {
 
