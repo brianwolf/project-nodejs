@@ -1,13 +1,13 @@
 import { Router } from 'express';
+import { logger } from '../../libs/logs/logs';
 
 export const router = Router();
-export const path = '/vars'
 
-
-router.get(path, (req, res) => {
+router.get('/vars', (req, res) => {
     res.json(process.env);
 });
 
 router.get("/", (req, res) => {
+    logger.info(`version: ${process.env.VERSION}`)
     res.json({ version: process.env.VERSION });
 });
