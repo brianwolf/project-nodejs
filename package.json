@@ -7,7 +7,7 @@
     "build": "tsc",
     "prestart": "npm run build",
     "start": "node dist/index.js",
-    "dev": "ts-node-dev --files --transpile-only --respawn --inspect=4321 --project tsconfig.json src/index.ts",
+    "dev": "ts-node-dev --watch .env, src src/index.ts",
     "lint": "npx eslint src"
   },
   "keywords": [],

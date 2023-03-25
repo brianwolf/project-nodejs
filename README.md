@@ -20,28 +20,24 @@ npm run start
 
     ```json
     {
-    "version": "0.2.0",
-    "configurations": [
-        {
-        "name": "Attach by Process ID",
-        "port": 4321,
-        "request": "attach",
-        "skipFiles": [
-            "<node_internals>/**"
-        ],
-        "type": "node"
-        }
-    ]
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "type": "node",
+                "request": "launch",
+                "name": "Launch Program",
+                "program": "${workspaceFolder}/src/index.ts",
+                "preLaunchTask": "tsc: build - tsconfig.json",
+                "sourceMaps": true,
+                "outFiles": [
+                    "${workspaceFolder}/dist/**/*.js"
+                ],
+            }
+        ]
     }
     ```
 
-2. Ejecutar
-
-    ```bash
-    npm run dev
-    ```
-
-3. Ejecutar el debugger de vscode para que se attache al server
+2. Ejecutar el debugger de vscode
 
 ---
 
