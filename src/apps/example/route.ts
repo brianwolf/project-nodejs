@@ -9,10 +9,6 @@ enum Errors {
     BOOOM
 }
 
-router.get(`${path}`, (req, res) => {
-    res.send(JSON.stringify(process.env));
-});
-
 router.get(`${path}/error`, (req, res) => {
     let msg = "BOOOM!!!!"
     logger.error(msg)

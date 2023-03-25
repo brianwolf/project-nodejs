@@ -1,7 +1,7 @@
 import { Express, NextFunction, Request, Response } from "express";
 import fastglob from 'fast-glob';
 import { AppException } from '../../error/error';
-
+import { logger } from '../../logs/logs';
 
 async function getRoutesByRegex(regex: string): Promise<string[]> {
     return await fastglob(regex)
@@ -35,9 +35,11 @@ export async function loadErrorHandlers(app: Express) {
     app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
         if (err instanceof AppException) {
-            res.status(409).json(err)
+            logger.warn(err)
+            return res.status(409).json(err)
         }
 
-        res.status(500).json({ cause: err.message })
+        logger.error(err)
+        return res.status(500).json({ cause: err.message })
     });
 }
