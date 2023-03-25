@@ -26,7 +26,7 @@ export async function configLogger(config: Config) {
         timestamp({
             format: 'YYYY-MM-DD HH:mm:ss'
         }),
-        printf(info => `${[info.timestamp]} - ${info.level} - ${info.label} - ${info.message}`),
+        printf(info => `${[info.timestamp]} - ${info.level} - ${info.message}`),
     )
 
     logger = createLogger({
