@@ -6,10 +6,30 @@ const swaggerJsdoc = require("swagger-jsdoc"),
 
 export const router = Router();
 
+/**
+ * @openapi
+ * /vars:
+ *   get:
+*     tags:
+ *       - admin
+ *     responses:
+ *       200:
+ *         description: 
+ */
 router.get('/vars', (req, res) => {
     res.json(process.env);
 });
 
+/**
+ * @openapi
+ * /:
+ *   get:
+ *     tags:
+ *       - admin
+ *     responses:
+ *       200:
+ *         description: 
+ */
 router.get("/", (req, res) => {
     logger.info(`version: ${process.env.VERSION}`)
     res.json({ version: process.env.VERSION });
@@ -30,7 +50,7 @@ const options = {
             },
         ],
     },
-    apis: ['dist/apps/*/route.js'],
+    apis: ['./src/apps/*/route.ts'],
 }
 
 const specs = swaggerJsdoc(options)

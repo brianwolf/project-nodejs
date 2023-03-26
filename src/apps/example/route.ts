@@ -9,12 +9,28 @@ enum Errors {
     BOOOM
 }
 
+/**
+ * @openapi
+ * /api/v1/examples/error:
+ *   get:
+ *     responses:
+ *       200:
+ *         description: 
+ */
 router.get(`${path}/error`, (req, res) => {
     let msg = "BOOOM!!!!"
     logger.error(msg)
     throw new Error(msg);
 });
 
+/**
+ * @openapi
+ * /api/v1/examples/error/business:
+ *   get:
+ *     responses:
+ *       200:
+ *         description: 
+ */
 router.get(`${path}/error/business`, (req, res) => {
     throw new AppException(Errors.BOOOM.toString(), "Se rompio todo!!!!");
 });
