@@ -3,7 +3,6 @@
  * -----------
  * v1.0.0
  */
-
 import { createLogger, format, Logger, transports } from 'winston';
 import 'winston-daily-rotate-file';
 const { combine, timestamp, printf } = format;

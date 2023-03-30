@@ -1,13 +1,11 @@
 import { Router } from 'express';
 import { AppException } from '../../libs/error/error';
-import { logger } from '../../libs/logs/logs'
+import { logger } from '../../libs/logs/logs';
+import { Errors } from './error';
 
 export const router = Router();
 export const path = '/api/v1/examples'
 
-enum Errors {
-    BOOOM
-}
 
 /**
  * @openapi

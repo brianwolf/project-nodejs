@@ -1,18 +1,20 @@
 import dotenv from "dotenv";
 import express from "express";
+import { configLogs } from "./apps/admin/logger";
+import { configDB } from "./apps/admin/db";
+import { logger } from './libs/logs/logs';
 import { configExpress } from "./libs/rest/rest";
-import { configureLogs } from "./apps/admin/logger";
-import { logger } from './libs/logs/logs'
 
 dotenv.config();
 
 const app = express();
 
 configExpress(app, 'dist/apps/**')
-configureLogs()
+configLogs()
+configDB()
 
 const host = process.env.SERVER_HOST;
 const port = process.env.SERVER_PORT;
 app.listen(Number(port), host, null, () => {
-    logger.info(`server started at http://${host}:${port}`);
+    logger.info(`server started at ${host}:${port}`);
 });

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
+  "engines": {
+    "node": "18"
+  },
   "scripts": {
     "build": "tsc",
     "prestart": "npm run build",
@@ -20,9 +23,12 @@
     "fast-glob": "^3.2.12",
     "helmet": "^5.1.0",
     "morgan": "^1.10.0",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.1.6",
     "swagger-jsdoc": "^6.2.8",
     "swagger-typed-express-docs": "^0.0.1-beta.2",
     "swagger-ui-express": "^4.6.2",
+    "typeorm": "^0.3.12",
     "winston": "^3.8.2",
     "winston-daily-rotate-file": "^4.7.1"
   },
@@ -31,7 +37,7 @@
     "@types/express": "^4.17.13",
     "@types/jest": "^28.1.6",
     "@types/morgan": "^1.9.3",
-    "@types/node": "^18.0.6",
+    "@types/node": "^18.15.11",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",

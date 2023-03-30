@@ -3,7 +3,6 @@
  * --------
  * v1.0.0
  */
-
 import { Express } from "express";
 import { loadErrorHandlers, loadRestModifiers, loadRoutes } from "./src/functions";
 
