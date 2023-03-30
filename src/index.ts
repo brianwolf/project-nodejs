@@ -8,6 +8,7 @@ import { configExpress } from "./libs/rest/rest";
 dotenv.config();
 
 const app = express();
+app.use(express.json())
 
 configExpress(app, 'dist/apps/**')
 configLogs()

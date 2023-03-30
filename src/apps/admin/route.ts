@@ -10,8 +10,8 @@ export const router = Router();
  * @openapi
  * /vars:
  *   get:
-*     tags:
- *       - admin
+ *     tags:
+ *       - Admin
  *     responses:
  *       200:
  *         description: 
@@ -25,7 +25,7 @@ router.get('/vars', (req, res) => {
  * /:
  *   get:
  *     tags:
- *       - admin
+ *       - Admin
  *     responses:
  *       200:
  *         description: 

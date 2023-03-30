@@ -7,7 +7,7 @@ import "reflect-metadata";
 import { DataSource } from "typeorm";
 import { logger } from '../logs/logs';
 
-var appDataSource: DataSource
+export var appDataSource: DataSource
 
 /**
  * 
