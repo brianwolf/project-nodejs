@@ -1,3 +1,4 @@
 export enum Errors {
-    BOOOM
+    BOOOM,
+    EXAMPLE_NOT_EXIST
 }
